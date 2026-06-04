@@ -557,37 +557,6 @@ img {
 
 
 
-/* Circular Arrow Icon button matching Bazil design */
-.arrow-lock-icon {
-  position: absolute;
-  top: 7.5rem;
-  left: -5rem;
-  width: 4rem;
-  height: 4rem;
-  border-radius: 50%;
-  background: var(--bg-card);
-  border: 1.5px solid var(--border);
-  color: var(--accent);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.7);
-  transition: all 0.3s cubic-bezier(0.25, 1, 0.5, 1);
-  cursor: pointer;
-  z-index: 30;
-}
-.arrow-lock-icon svg {
-  width: 1.5rem;
-  height: 1.5rem;
-  transition: transform 0.3s ease;
-}
-.arrow-lock-icon:hover {
-  background: var(--accent);
-  color: #000;
-  border-color: var(--accent);
-  box-shadow: 0 0 25px var(--accent-glow);
-  transform: scale(1.1) rotate(45deg);
-}
 
 /* Hero Footer metadata alignment matching the footer logos/text in Bazil design */
 .hero-meta-footer {
@@ -637,14 +606,6 @@ img {
   .hero-meta-left, .hero-meta-right, .tech-cyber-badges {
     text-align: center;
     justify-content: center;
-  }
-  .arrow-lock-icon {
-    left: 50%;
-    top: -5.5rem;
-    transform: translateX(-50%);
-  }
-  .arrow-lock-icon:hover {
-    transform: translateX(-50%) scale(1.1) rotate(45deg);
   }
 }
 
@@ -1442,10 +1403,6 @@ img {
   }
   .hero-portrait-overlap {
     margin-top: -6.5rem;
-  }
-  .arrow-lock-icon {
-    top: 5.5rem;
-    left: -3rem;
   }
 }
 
