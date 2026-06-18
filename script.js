@@ -551,7 +551,6 @@ document.addEventListener('DOMContentLoaded', () => {
     if (!heroPortrait) return;
 
     const currentFilter = {
-      blur: 8,
       grayscale: 100,
       brightness: 0.65,
       contrast: 1.0
@@ -572,7 +571,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     const updateProximity = () => {
-      let desiredBlur = 8;
       let desiredGrayscale = 100;
       let desiredBrightness = 0.65;
       let desiredContrast = 1.0;
@@ -591,7 +589,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (distance < maxRadius) {
           const norm = distance / maxRadius;
-          desiredBlur = norm * 8;
           desiredGrayscale = norm * 100;
           desiredBrightness = 1.15 - norm * 0.50; // closer = brighter
           desiredContrast = 1.15 - norm * 0.15;
@@ -599,7 +596,6 @@ document.addEventListener('DOMContentLoaded', () => {
       }
 
       // Smooth tracking via Linear Interpolation (lerp physics)
-      currentFilter.blur += (desiredBlur - currentFilter.blur) * 0.12;
       currentFilter.grayscale += (desiredGrayscale - currentFilter.grayscale) * 0.12;
       currentFilter.brightness += (desiredBrightness - currentFilter.brightness) * 0.12;
       currentFilter.contrast += (desiredContrast - currentFilter.contrast) * 0.12;
@@ -608,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const dropShadowPx = 15 + closeness * 10;
       const dropShadowAlpha = 0.1 + closeness * 0.2;
 
-      heroPortrait.style.filter = `blur(${currentFilter.blur.toFixed(2)}px) grayscale(${currentFilter.grayscale.toFixed(1)}%) brightness(${currentFilter.brightness.toFixed(3)}) contrast(${currentFilter.contrast.toFixed(3)}) drop-shadow(0 0 ${dropShadowPx.toFixed(1)}px rgba(0, 255, 102, ${dropShadowAlpha.toFixed(2)}))`;
+      heroPortrait.style.filter = `grayscale(${currentFilter.grayscale.toFixed(1)}%) brightness(${currentFilter.brightness.toFixed(3)}) contrast(${currentFilter.contrast.toFixed(3)}) drop-shadow(0 0 ${dropShadowPx.toFixed(1)}px rgba(0, 255, 102, ${dropShadowAlpha.toFixed(2)}))`;
 
       requestAnimationFrame(updateProximity);
     };
